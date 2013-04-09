@@ -10,3 +10,10 @@
     <%= render 'user_row', :user => user %>
   <% end %>
 </table>
+
+<div class="pagination">
+  <ul>
+    <li><a href="<%= @previous_page %>">Prev</a></li>
+    <li><a href="<%= @next_page %>">Next</a></li>
+  </ul>
+</div>

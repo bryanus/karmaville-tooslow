@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
   #   self.save
   # end
 
+  def self.page(next_page)
+    limit(50).offset(next_page.to_i - 1)
+  end
+  
   def update_karma
     val = self.karma_points.sum("value")
     # if val > 0 || val.nil? 
@@ -33,7 +37,7 @@ class User < ActiveRecord::Base
 
   def self.by_karma
     # joins(:karma_points).group('users.id').order('SUM(karma_points.value) DESC')
-    User.order("sum DESC")
+    order("sum DESC")
   end
 
   def total_karma
