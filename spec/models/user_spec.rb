@@ -25,7 +25,9 @@ describe User do
       user_med   = create(:user_with_karma, :total => 500, :points => 2)
       user_low   = create(:user_with_karma, :total => 200, :points => 2)
       user_high  = create(:user_with_karma, :total => 800, :points => 2)
-
+      puts '$$$$$$$$$$$$$$'
+      puts User.by_karma.inspect
+      puts "##============="
       User.by_karma.should eq [user_high, user_med, user_low]
     end
   end
